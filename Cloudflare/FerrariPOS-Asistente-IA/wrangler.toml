@@ -1,0 +1,6 @@
+name = "ferraripos-asistente-ia"
+main = "src/index.js"
+compatibility_date = "2026-10-13"
+
+[vars]
+GEMINI_MODEL = "gemini-2.5-flash-lite"

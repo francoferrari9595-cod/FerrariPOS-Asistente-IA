@@ -1,0 +1,27 @@
+# .NET
+**/bin/
+**/obj/
+**/publish/
+**/EXE/
+**/installer/
+*.user
+*.suo
+
+# Android/Gradle
+**/.gradle/
+**/build/
+
+# Local/editor/OS
+.vs/
+.idea/
+*.tmp
+Thumbs.db
+Desktop.ini
+
+# Local secrets / generated runtime data
+*.db-shm
+*.db-wal
+
+# Private signing keys: never commit to a public repository
+FerrariPOS.LicenseManager.Windows/private_key.pem
+key.der

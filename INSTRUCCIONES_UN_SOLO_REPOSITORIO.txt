@@ -1,0 +1,17 @@
+FERRARI POS V73.1.57 + GROQ WORKER — UN SOLO REPOSITORIO
+
+Este paquete contiene el código fuente completo del proyecto que estaba disponible en la base de trabajo, el Worker y un workflow raíz único. No es una compilación ya verificada: GitHub Actions debe ejecutarse para confirmar que los proyectos compilan en el runner.
+
+PASOS
+1. Extraer TODO el ZIP en una carpeta nueva. No copiar solamente el BAT: el BAT verifica que existan el proyecto Windows, el Worker y el workflow.
+2. Ejecutar PUBLICAR_TODO_EN_GITHUB.bat y pegar la URL del repositorio FerrariPOS-Asistente-IA.
+3. En Settings > Secrets and variables > Actions, conservar/crear CLOUDFLARE_API_TOKEN y CLOUDFLARE_ACCOUNT_ID.
+4. Abrir Actions. El workflow raíz corre dos trabajos independientes: Windows EXE/Setup y validar/desplegar Worker.
+5. Cuando el trabajo Windows termine bien, descargar los artefactos FerrariPOS-Windows-EXE y FerrariPOS-Windows-Setup desde el resumen de la ejecución.
+
+IMPORTANTE
+- El BAT publica la carpeta completa; no funciona si se copia solo el BAT.
+- No contiene ni debe contener tokens ni claves privadas.
+- El workflow publica el EXE principal y el instalador. No compila el administrador de licencias en este flujo para evitar que la ausencia de la clave privada de licencias bloquee la entrega del EXE principal.
+- El Worker necesita que la clave Groq esté configurada como secreto del Worker en Cloudflare si el código la requiere; nunca guardarla en GitHub como texto dentro de los archivos.
+- No se ha podido ejecutar GitHub Actions desde este entorno; no se garantiza éxito de build hasta ver la ejecución real.

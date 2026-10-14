@@ -1,0 +1,22 @@
+IMPORTANTE: CLAVE PRIVADA DE LICENCIAS
+
+La base original contiene FerrariPOS.LicenseManager.Windows/private_key.pem y key.der.
+La clave privada no debe publicarse en un repositorio público.
+
+Se agregó una regla al .gitignore para evitar subir esos archivos y se ajustó el workflow
+para recuperar private_key.pem desde el secreto de GitHub Actions:
+FERRARIPOS_LICENSE_PRIVATE_KEY_PEM
+
+ANTES de ejecutar SUBIR_TODO_GITHUB.bat:
+1. Abre el archivo local FerrariPOS.LicenseManager.Windows/private_key.pem en tu PC.
+2. En GitHub, abre PDVTERM > Settings > Secrets and variables > Actions.
+3. Crea el secreto FERRARIPOS_LICENSE_PRIVATE_KEY_PEM y pega el contenido completo del PEM.
+4. Guarda el secreto. No lo pegues en el chat ni en el código.
+5. Después ejecuta SUBIR_TODO_GITHUB.bat.
+
+El archivo private_key.pem se conserva en tu carpeta local para las herramientas locales,
+pero Git lo excluirá de la publicación. Sin configurar el secreto, el workflow detendrá
+la compilación de Licencias de Windows en vez de publicar la clave por error.
+
+El archivo key.der también queda excluido de Git. No se cambió la lógica de FerrariPOS ni
+se modificó el código de licencias; solo se protege la publicación de claves.
